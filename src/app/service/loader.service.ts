@@ -25,7 +25,7 @@ export class LoaderService {
       if (componentIndex >= 0) { // delete form the view
         this.rootViewContainer.remove(this.rootViewContainer.indexOf(this.addedComponents[index]));
       }
-      delete this.addedComponents[index]; // delete in the list of added components
+      this.addedComponents.splice(index, 1); // delete in the list of added components
     }
   }
 

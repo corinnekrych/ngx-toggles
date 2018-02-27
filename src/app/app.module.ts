@@ -6,18 +6,19 @@ import {NgModule} from '@angular/core';
 import {FeatureContainerComponent} from './feature-container/feature-container.component';
 import {FeatureFlagService} from './service/feature-flag.service';
 import { FeatureBComponent } from './featureB/featureB.component';
+import {FeatureBModule} from './featureB/featureB.module';
+import {FeatureAModule} from './featureA/featureA.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FeatureAComponent,
-    FeatureBComponent,
-    FeatureContainerComponent,
-    FeatureBComponent
+    FeatureContainerComponent
   ],
   entryComponents: [FeatureAComponent, FeatureBComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FeatureAModule,
+    FeatureBModule,
   ],
   providers: [LoaderService, FeatureFlagService],
   bootstrap: [AppComponent],
