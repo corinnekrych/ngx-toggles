@@ -31,3 +31,10 @@ When using `FeatureContainerComponent` as a wrapper the loderService need to be 
 
 We've added 2 components: `FeatureAComponent` and `FeatureBComponent`.
 See [step2](step2.png).
+### step3: load component from module
+```
+git checkout step3
+```
+You need to import the `FeatureAModule`, `FeatureBModule` from `AppModule`.
+> Note: The modules are not dynamically loaded. 
+  Sth similar to SystemJsNgModuleLoader but for webpack needs to be found.
