@@ -20,6 +20,7 @@ import { FeatureBComponent } from './featureB/featureB.component';
     BrowserModule
   ],
   providers: [LoaderService, FeatureFlagService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [FeatureContainerComponent]
 })
 export class AppModule { }
