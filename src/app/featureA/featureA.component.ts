@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 
-
 @Component({
-  selector: 'app-feature',
-  templateUrl: './featureA.component.html',
-  styleUrls: ['./featureA.component.css']
+  selector: 'app-feature-a',
+  template: '<p>Feature A is loaded and it\'s ready for work!</p>'
 })
 export class FeatureAComponent implements OnInit {
 

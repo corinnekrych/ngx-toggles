@@ -8,13 +8,27 @@
 <label>Feature A:</label>
 <label class="form-check-inline">
   <span>ON</span>
-  <input class="form-check-input" type="radio" name="mode" [value]="true" (click)="toggleChanged(true)">
+  <input class="form-check-input" type="radio" name="featureA"  (click)="toggleChanged({feature: 'featureA', mode:true})">
 </label>
 <label class="form-check-inline">
   <span>OFF</span>
-  <input class="form-check-input" type="radio" name="mode" [value]="false" checked (click)="toggleChanged(false)">
+  <input class="form-check-input" type="radio" name="featureA" checked (click)="toggleChanged({feature: 'featureA', mode:false})">
 </label>
+<hr/>
+<label>Feature B:</label>
+<label class="form-check-inline">
+  <span>ON</span>
+  <input class="form-check-input" type="radio" name="featureB"  (click)="toggleChanged({feature: 'featureB', mode:true})">
+</label>
+<label class="form-check-inline">
+  <span>OFF</span>
+  <input class="form-check-input" type="radio" name="featureB" checked (click)="toggleChanged({feature: 'featureB', mode:false})">
+</label>
+
+
 <h2>The components rendering</h2>
 
-<app-feature-container></app-feature-container>
+<app-feature-container featureName="featureA"></app-feature-container>
+
+<app-feature-container featureName="featureB"></app-feature-container>
 

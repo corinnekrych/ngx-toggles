@@ -2,7 +2,7 @@ import {Component, ViewContainerRef} from '@angular/core';
 import {LoaderService} from './service/loader.service';
 import {FeatureAComponent} from './featureA/featureA.component';
 import {Type} from '@angular/compiler/src/core';
-import {FeatureFlagService} from './service/feature-flag.service';
+import {FeatureFlagService, ToggleModel} from './service/feature-flag.service';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +16,8 @@ export class AppComponent {
 
   }
 
-  toggleChanged(value: boolean) {
-    console.log(`AppComponent::Toggle is ${value}`);
-    this.featureFlagService.toggleSubject.next({mode: value});
+  toggleChanged(value: ToggleModel) {
+    console.log(`AppComponent::Toggle for ${value.feature} is ${value.mode}`);
+    this.featureFlagService.toggleSubject.next(value);
   }
 }
