@@ -2,11 +2,8 @@ import {Component, ViewContainerRef} from '@angular/core';
 import {LoaderService} from './service/loader.service';
 import {FeatureAComponent} from './featureA/featureA.component';
 import {Type} from '@angular/compiler/src/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import {FeatureFlagService} from './service/feature-flag.service';
 
-export class ToggleModel {
-  mode: boolean;
-}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,27 +11,13 @@ export class ToggleModel {
 })
 export class AppComponent {
   title = 'ngx-toggles';
-  toggle = {mode: false} as ToggleModel;
-  toggleSubject: BehaviorSubject<ToggleModel>;
 
-  constructor(private service: LoaderService, private viewContainerRef: ViewContainerRef) {
-    // where to create the component
-    service.setRootViewContainerRef(viewContainerRef);
+  constructor(private featureFlagService: FeatureFlagService) {
 
-    this.toggle.mode = false;
-    this.toggleSubject = new BehaviorSubject<ToggleModel>(this.toggle);
-    this.toggleSubject.subscribe(value => {
-      console.log(`Toggle changed to ${value.mode}`);
-      if (this.toggle.mode) {
-        this.service.addComponentDynamically(FeatureAComponent as Type);
-      } else {
-        this.service.removeComponent(FeatureAComponent as Type);
-      }
-    });
   }
-  toggleChanged() {
-    console.log(`Toggle is ${this.toggle.mode}`);
-    this.toggle.mode = !this.toggle.mode;
-    this.toggleSubject.next(this.toggle);
+
+  toggleChanged(value: boolean) {
+    console.log(`AppComponent::Toggle is ${value}`);
+    this.featureFlagService.toggleSubject.next({mode: value});
   }
 }
