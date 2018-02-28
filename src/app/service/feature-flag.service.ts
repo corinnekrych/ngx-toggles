@@ -13,7 +13,6 @@ export class FeatureFlagService {
     feature: '',
     mode: false
   } as ToggleModel;
-  toggles: ToggleModel[];
   constructor() {
     this.toggleSubject = new BehaviorSubject<ToggleModel>(this.defaultToggle);
   }

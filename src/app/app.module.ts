@@ -7,6 +7,7 @@ import {FeatureFlagService} from './service/feature-flag.service';
 import { FeatureBComponent } from './featureB/featureB.component';
 import {FeatureBModule} from './featureB/featureB.module';
 import {FeatureAModule} from './featureA/featureA.module';
+import {FakeService} from './service/fake.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import {FeatureAModule} from './featureA/featureA.module';
     FeatureAModule,
     FeatureBModule,
   ],
-  providers: [FeatureFlagService],
+  providers: [FeatureFlagService, FakeService],
   bootstrap: [AppComponent],
   exports: [FeatureContainerComponent]
 })
