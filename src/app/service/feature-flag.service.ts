@@ -9,11 +9,12 @@ export class ToggleModel {
 @Injectable()
 export class FeatureFlagService {
   toggleSubject: BehaviorSubject<ToggleModel>;
-  toggle = {
+  defaultToggle = {
     feature: '',
     mode: false
   } as ToggleModel;
+  toggles: ToggleModel[];
   constructor() {
-    this.toggleSubject = new BehaviorSubject<ToggleModel>(this.toggle);
+    this.toggleSubject = new BehaviorSubject<ToggleModel>(this.defaultToggle);
   }
 }
