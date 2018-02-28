@@ -40,10 +40,16 @@ You need to import the `FeatureAModule`, `FeatureBModule` from `AppModule`.
 > Note: The modules are not dynamically loaded. 
   Sth similar to SystemJsNgModuleLoader but for webpack needs to be found.
 
-### step4: use strucutal directive `ngComponentOutlet`
+### step4: use structutal directive `ngComponentOutlet`
 ```
 git checkout step4
 ```
 If you don't need to create several instances, ie: a simple toggle fits!
 You can use `ngComponentOutlet`.
 It removes all the boiler plate of our `FeatureContainerComponent`.
+
+### step5: FeatureAComponent use services
+```
+git checkout step5
+```
+DI works as usual for dynamically loaded components.
